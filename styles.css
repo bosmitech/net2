@@ -1,0 +1,888 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+    background-color: #fff;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+}
+
+#desktop-menu {
+    display: none;
+}
+
+#menuToggle:after {
+    content: 'BOSMI TECHNOLOGIES';
+    left: 25%;
+    top: -40px;
+    font-weight: bold;
+    position: relative !important;
+    color: white;
+    font-size: 1.5rem;
+}
+
+#menuToggle {
+    width: 100%;
+    background-color: #171819;
+    display: block;
+    height: 40px;
+    position: fixed;
+    z-index: 1;
+    user-select: none;
+}
+
+#menuToggle a {
+    text-decoration: none;
+    color: white;
+}
+
+#menuToggle a:hover {
+    color: #f13a11;
+    transition: color 0.3s ease;
+}
+
+/*for hiden checkbox*/
+#menuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+
+/*hamburger lines*/
+#menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #f13a11;
+    border-radius: 3px;
+    margin-left: 7px;
+    margin-top: 5px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+    transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+/* transforms all the slices of hamburger into a crossmark*/
+
+#menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-5px, 0px);
+    background: #f13a11;
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3),
+#menuToggle input:checked ~ span:nth-last-child(5) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-55deg) translate(0, -1px);
+}
+
+#menu {
+    position: fixed;
+    padding: 0 50% 2rem 35%;
+    margin-top: -2px;
+    background: #171819;
+    list-style-type: none;
+    transform-origin: 0% 0%;
+    transform: translate(0, -100%);
+    transition: transform 0.5s;
+}
+
+#menu li {
+    padding: 5px 0;
+    margin-right: 5px;
+    font-size: 0.9rem;
+}
+
+/*causes menu to slide in*/
+#menuToggle input:checked ~ ul {
+    transform: none;
+    text-align: center;
+}
+
+.media-icon {
+    display: inline-block;
+}
+
+.icons {
+    fill: white;
+}
+
+.icons:hover,
+#Dribbble-Light-Preview:hover {
+    fill: #f13a11;
+}
+
+.icons,
+.table-icon {
+    width: 15px;
+    color: white;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+#home {
+    text-align:center;
+    background-image: url(images/hero-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    vertical-align: middle;
+    opacity: 1.0;
+}
+
+
+#home > h1 {
+    color: rgb(10, 2, 19);
+    margin: 0 auto;
+    display: block;
+    font-size: 2.4rem;
+    margin-bottom: 3.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+#home > h3 {
+    color: hsl(234, 87%, 51%);
+    padding-top: 12rem;
+    padding-bottom: 1.6rem;
+    font-size: 2.4rem;
+    font-weight: bold;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+#btn1 {
+    color: rgb(2, 10, 10);
+    padding-right: 2rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+#btn1:hover {
+    color: #f13a11;
+    transition: all 0.3s ease;
+}
+
+#btn2 {
+    color: #f13a11;
+    border: 1px solid #f13a11;
+    padding: 1rem 1.5rem;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+#btn2:hover {
+    background-color: white;
+    color: #f13a11;
+    border-color: white;
+    transition: all 0.3s ease;
+}
+
+#membership {
+    background-color: #171819;
+    padding: 5rem 20px;
+}
+
+.membership-details > h2,
+.hours > h3 {
+    color: white;
+    font-size: 2.1rem;
+    margin-bottom: 1rem;
+}
+
+.membership-details > h3 {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.membership-details > p {
+    font-size: 1.2rem;
+    color: #666262;
+    margin-bottom: 3rem;
+}
+
+#member-btn {
+    background-color: #f13a11;
+    color: white;
+    border: 1px solid #f13a11;
+    padding: 0.5rem 0.3rem;
+    border-radius: 2px;
+    cursor: pointer;
+    display: block;
+    max-width: 350px;
+    text-align: center;
+    max-height: 85px;
+}
+
+#member-btn:hover {
+    background-color: white;
+    border-color: white;
+    color: #f13a11;
+    transition: all 0.3s ease;
+}
+
+.hours > h3 {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.days {
+    color: white;
+    line-height: 2.5;
+    font-weight: 300;
+}
+
+.time {
+    font-size: 1.2rem;
+    color: #666262;
+}
+
+#about-us {
+    padding: 5rem 20px;
+    background-color: #ededed;
+}
+
+
+#about-us > h2 {
+    font-size: 2.1rem;
+    margin-bottom: 1rem;
+}
+
+#about-us > p {
+    font-size: 1.1rem;
+    color: #666262;
+    margin-bottom: 3rem;
+}
+
+.grid-container {
+    max-width: 375px;
+}
+
+.grid-photo {
+    height: auto;
+    vertical-align: middle;
+}
+
+.twitter-svg,
+.facebook-svg,
+.instagram-svg {
+    max-width: 20px;
+    fill: #666262;
+    float: right;
+    margin-top: -22px;
+    margin-right: 15px;
+}
+
+.facebook-svg {
+    margin-right: 20px !important;
+}
+
+
+.twitter-svg:hover,
+#facebook-svg:hover,
+.instagram-svg:hover {
+    fill: #f13a11;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.team-info {
+    background-color: #ffffff;
+    border-radius: 0 0 2px 2px;
+    box-shadow: 10px 5px 5px #909090;
+    padding: 20px;
+    margin-bottom: 3rem;
+}
+
+.name-heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.team-details {
+    font-weight: 400;
+}
+
+#classes {
+    margin-top: -100px;
+    padding: 5rem 20px;
+    background-color: #ededed;
+}
+
+.class-container {
+    background-color: white;
+    padding-top: 5rem;
+}
+
+.class-container > h3,
+.class-container > h2 {
+    text-align: center;
+}
+
+.class-container > h3 {
+    font-size: 1.5rem;
+    color: #909090;
+    font-weight: 400;
+}
+
+.class-container > h2 {
+    font-size: 2rem;
+    padding-bottom: 3rem;
+
+}
+
+.class-info {
+    background-color: #ffffff;
+    border-radius: 0 0 2px 2px;
+    box-shadow: 10px 5px 5px #909090;
+    padding: 20px;
+    margin-bottom: 3rem;
+}
+
+.class-info > h4 {
+    color: #909090;
+    font-size: 1.2rem;
+}
+
+.class-price {
+    float: right;
+    margin-top: -60px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #f13a11;
+    color: white;
+    padding: 0.6rem;
+    border-radius: 50%;
+}
+
+.classes-p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #666262;
+}
+
+#schedules {
+    background-color: #171819;
+    padding: 5rem 20px;
+}
+
+#schedules > h3 {
+    font-size: 1.5rem;
+    color: #909090;
+    font-weight: 400;
+    text-align: center;
+}
+
+#schedules > h2 {
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+table {
+    width: 100%;
+    border-spacing: 1px;
+    text-align: center;
+    display: block;
+    overflow-x: auto;
+}
+
+table td {
+    padding: 1.5rem;
+    border-right: 0.1px solid #909090;
+    border-bottom: 0.1px solid #909090;
+}
+
+.table-icon {
+    width: 25px;
+    max-width: 100px;
+}
+
+thead {
+    background-color: #f13a11;
+    color: white;
+    font-size: 1rem;
+}
+
+thead tr th {
+    padding: 1rem;
+}
+
+table span {
+    color: #909090;
+    display: block;
+    font-size: 0.9rem;
+}
+
+.red-time {
+    background-color: #f13a11;
+    color: white;
+    font-weight: bold;
+    padding: 1.2rem;
+    border-right: none;
+    border-bottom: none;
+}
+
+strong {
+    color: white;
+}
+
+#contact {
+    padding: 5rem 20px;
+}
+
+#contact > h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    color: black;
+    line-height: 1.2;
+}
+
+input {
+    padding-left: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    font-size: 1.2rem;
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    font-family: 'Open Sans';
+}
+
+textarea {
+    padding-left: 1rem;
+    font-size: 1.2rem;
+    width: 100%;
+    font-family: 'Open Sans';
+    padding-top: 1rem;
+    color: #808080;
+}
+
+#submit {
+    margin-top: 1rem;
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 2px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 4rem;
+}
+
+#submit:hover {
+    background-color: #f13a11;
+    transition: all 0.3s ease;
+}
+
+footer {
+    margin-bottom: 4rem;
+}
+
+.mail-icon {
+    fill: red;
+}
+
+.mail-svg {
+    max-width: 20px;
+    vertical-align: middle;
+}
+
+.red-phone {
+    max-width: 20px;
+    vertical-align: middle;
+}
+
+footer {
+    text-align: center;
+}
+
+/*styles for smaller tablets*/
+@media (min-width: 768px) {
+    #menu {
+        padding: 1rem 55% 2rem 45%;
+    }
+
+    #menu li {
+        font-size: 1rem;
+    }
+
+    #menuToggle {
+        height: 50px;
+        padding-top: 2px;
+    }
+
+    #menuToggle:after {
+        left: 35%;
+        font-size: 2rem;
+    }
+
+    #home > h3 {
+        padding-top: 23.3rem;
+        font-size: 1.6rem;
+    }
+
+    #home > h1 {
+        width: 480px;
+    }
+
+    #btn1,
+    #btn2 {
+        font-size: 1.3rem;
+    }
+
+    .membership-details {
+        margin-left: 20px;
+    }
+
+    .hours {
+        margin-top: -45px;
+        border-left: 1px #666262 solid;
+        height: 375px;
+        padding-left: 2.8rem;
+    }
+
+    .hours > p {
+        font-size: 1.2rem;
+    }
+
+    #about-us > h2,
+    #about-us > p {
+        margin-left: 6rem;
+        width: 500px;
+    }
+
+    #about-us > h2 {
+        font-size: 2.5rem;
+    }
+
+    #about-us > p {
+        font-size: 1.2rem;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: 348px 348px;
+        grid-gap: 2rem;
+        margin-right: 8px;
+    }
+
+    #contact > h2 {
+        font-size: 2.3rem;
+        width: 300px;
+    }
+
+    .map > h2 {
+        font-size: 2.3rem;
+        margin-top: -120px;
+    }
+
+    footer > p,
+    footer > a,
+    footer > span {
+        font-size: 1.2rem;
+    }
+}
+
+/* styles larger tablets */
+@media (min-width: 1024px) {
+    #home > h3 {
+        padding-top: 500px;
+        font-size: 2rem;
+    }
+
+    #home > h1 {
+        font-size: 2.6rem;
+    }
+
+    #btn1,
+    #btn2 {
+        font-size: 1.5rem;
+    }
+
+    #menuToggle:after {
+        left: 40%;
+    }
+
+    #menu {
+        padding: 1rem 55% 2rem 47%;
+    }
+
+    #menu li {
+        font-size: 1.3rem;
+    }
+
+    #about-us > h2,
+    #about-us > p {
+        margin: 15px auto;
+        margin-bottom: 0.5rem;
+    }
+
+    #about-us > p {
+        margin-bottom: 4rem;
+        font-size: 1.4rem;
+    }
+
+    .membership-details {
+        margin-left: 100px;
+    }
+
+    .hours {
+        padding-left: 4rem;
+    }
+
+    .grid-container {
+        grid-template-columns: 460px 460px;
+        grid-column-gap: 4rem;
+
+    }
+}
+
+/*styles for laptops*/
+@media (min-width: 1281px) {
+    body {
+        overflow-x: hidden;
+    }
+
+
+    #desktop-menu {
+        background-color: black;
+        display: flex;
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+        height: 65px;
+        padding-left: 45%;
+    }
+
+    #desktop-menu > li {
+        display: flex;
+        flex-direction: row;
+        margin-right: 40px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #desktop-menu > li > a {
+        text-decoration: none;
+        list-style: none;
+        color: white;
+        font-size: 1rem;
+    }
+
+    #desktop-menu > li > a:hover {
+        color: #f13a11;
+        transition: all 0.3s ease;
+    }
+
+    .company-logo {
+        position: absolute;
+        left: 8rem;
+        font-size: 1.8rem;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .company-logo:hover {
+        color: #f13a11;
+        transition: all 0.3s ease;
+    }
+
+    #menuToggle {
+        display: none;
+    }
+
+    #home > h3 {
+        padding-top: 300px;
+        font-size: 1.5rem;
+    }
+
+    #home > h1 {
+        font-size: 2.6rem;
+    }
+
+    #btn1,
+    #btn2 {
+        font-size: 1.1rem;
+    }
+
+    #member-btn {
+        font-weight: 500;
+        max-width: 460px;
+        font-size: 1.1rem;
+    }
+
+    .membership-details > h2,
+    .hours > h3 {
+        font-size: 2.4rem;
+    }
+
+    #membership > p {
+        font-weight: 200;
+    }
+
+    .membership-details {
+        margin-left: 100px;
+    }
+
+    .days {
+        font-weight: 200;
+    }
+
+    .grid-container {
+        padding-left: 150px;
+        grid-template-columns: 520px 520px;
+        grid-column-gap: 4rem;
+    }
+
+    #about-us > h2 {
+        margin-top: 3rem;
+    }
+
+    #about-us > h2,
+    #about-us > p {
+        margin-left: 150px;
+        width: 450px;
+    }
+
+    #about-us > p {
+        font-size: 1.16rem;
+        line-height: 1.8;
+        font-weight: 400;
+    }
+
+    .team-responsive {
+        grid-template-columns: 265px 265px;
+        grid-gap: 2rem;
+        position: absolute;
+        right: 460px;
+        top: 1390px;
+
+    }
+
+    .responsive-container {
+        display: grid;
+        grid-template-columns: 480px 480px;
+        grid-gap: 4rem;
+    }
+
+    .classes-responsive-ct {
+        display: grid;
+        grid-template-columns: 379px 379px 379px;
+        margin-left: -58px;
+        grid-gap: 2rem;
+    }
+
+    .class-container {
+        width: 1200px;
+        margin: auto;
+    }
+
+    #contact > h2,
+    .map > h2 {
+        font-size: 2.1rem;
+    }
+
+    .map > h2 {
+        margin-top: -67px;
+    }
+
+    .map-google {
+        max-width: 500px;
+    }
+
+    #schedules > h2 {
+        font-size: 2.5rem;
+    }
+
+    table {
+        margin-left: 115px;
+        margin-right: auto;
+    }
+
+    #contact > h2 {
+        margin-left: 150px;
+        max-width: 800px;
+        width: 400px;
+    }
+}
+
+/* large monitors */
+@media (min-width: 1800px) {
+    #home > h3 {
+        padding-top: 400px;
+    }
+
+    #about-us > h2,
+    #about-us > p {
+        margin-left: 350px;
+    }
+
+    .team-responsive {
+        position: absolute;
+        top: 1600px;
+        left: 500px;
+    }
+
+    .classes-responsive-ct {
+        margin-left: 184px !important;
+        grid-gap: 1.9rem;
+    }
+
+    table {
+        margin-left: 350px;
+    }
+
+    #contact > h2 {
+        margin-left: 399px;
+    }
+
+    .grid-container {
+        margin-left: 250px;
+    }
+}
